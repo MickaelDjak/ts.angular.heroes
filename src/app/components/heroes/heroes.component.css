@@ -1,0 +1,32 @@
+:host .heroes {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+:host .hero {
+  display: flex;
+  border: 2px solid #444444;
+  border-radius: 5px;
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
+}
+:host .hero.selected {
+  background:  #CFD8DC;
+}
+
+:host .hero--badge {
+  align-self: center;
+  padding-right: 5px;
+}
+
+:host .hero--edit {
+  flex-direction: column;
+}
+
+:host .hero input{
+  margin-left: 10px;
+  padding: 5px;
+}
+
+
