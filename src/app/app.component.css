@@ -19,3 +19,8 @@ body, input[type="text"], button {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.hero-navigation {
+  display: flex;
+  flex-direction: column;
+}
