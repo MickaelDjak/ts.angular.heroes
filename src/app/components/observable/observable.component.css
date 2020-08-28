@@ -1,0 +1,11 @@
+:host .from-event {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: self-start;
+}
+:host .from-event canvas {
+  background-color: white;
+  margin-bottom: 20px;
+
+}
