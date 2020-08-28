@@ -1,14 +1,23 @@
+<app-hero-navigation></app-hero-navigation>
+
+<hr/>
+
 <h2>Hero detail</h2>
-<button class="btn btn-default" (click)="goBack()">
-  Go back
-</button>
+
 <div *ngIf="hero">
   <p>Details #{{ hero.id }} {{ hero.name | uppercase}}</p>
   <label class="hero--badge"> Name </label>
   <input [(ngModel)]="hero.name" placeholder="name"/>
-  <button (click)="save()">Save</button>
+  <button class="btn" (click)="save()">Save</button>
 </div>
+
 <div *ngIf="!hero">
   <p>Hero is absent </p>
 </div>
+
+<button class="btn" (click)="goBack()"> Go back </button>
+
+<hr/>
+
 <app-messages></app-messages>
+

@@ -3,10 +3,10 @@ import {MessangerService} from '../../services/messanger/messanger.service';
 
 @Component({
   selector: 'app-messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  templateUrl: './hero-logger.component.html',
+  styleUrls: ['./hero-logger.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class HeroLoggerComponent implements OnInit {
 
   constructor(public messenger: MessangerService) {
   }

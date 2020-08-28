@@ -8,35 +8,16 @@ import {MissionControlComponent} from './components/mission-control/mission-cont
 import {ObservableComponent} from './components/observable/observable.component';
 
 const routes: Routes = [
-  {
-    path: 'heroes',
-    component: HeroesComponent
-  },
-  {
-    path: 'detail/:id',
-    component: HeroDatailComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'voter',
-    component: VoterComponent
-  },
-  {
-    path: 'mission',
-    component: MissionControlComponent
-  },
-  {
-    path: 'observable',
-    component: ObservableComponent
-  },
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  }
+  {path: 'hero', component: HeroesComponent,},
+  {path: 'hero/dashboard', component: DashboardComponent},
+  {path: 'hero/detail/:id', component: HeroDatailComponent},
+  // {path: 'heroes', component: HeroesComponent},
+  // {path: 'detail/:id', component: HeroDatailComponent},
+  // {path: 'dashboard', component: DashboardComponent},
+  {path: 'voter', component: VoterComponent},
+  {path: 'mission', component: MissionControlComponent},
+  {path: 'observable', component: ObservableComponent},
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 
 

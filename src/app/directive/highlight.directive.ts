@@ -20,6 +20,7 @@ export class HighlightDirective {
 
   highlight(color: string): void {
     this.el.nativeElement.style.background = color;
+    this.el.nativeElement.style.transition = 'all 200ms';
   }
 
 }

@@ -11,7 +11,7 @@ import { InMemoryDataService } from './services/in-memory-data/in-memory-data.se
 import {HeroesStorageService} from './services/heroes-storage/heroes-storage.service';
 import {HeroDatailComponent} from './components/hero-datail/hero-datail.component';
 import {MessangerService} from './services/messanger/messanger.service';
-import {MessagesComponent} from './components/messages/messages.component';
+import {HeroLoggerComponent} from './components/hero-logger/hero-logger.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
@@ -21,13 +21,14 @@ import { VotetakerComponent } from './components/votetaker/votetaker.component';
 import { MissionControlComponent } from './components/mission-control/mission-control.component';
 import { AstronautComponent } from './components/astronaut/astronaut.component';
 import { ObservableComponent } from './components/observable/observable.component';
+import { HeroNavigationComponent } from './components/hero-navigation/hero-navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroDatailComponent,
-    MessagesComponent,
+    HeroLoggerComponent,
     DashboardComponent,
     HeroSearchComponent,
     HighlightDirective,
@@ -35,7 +36,8 @@ import { ObservableComponent } from './components/observable/observable.componen
     VotetakerComponent,
     MissionControlComponent,
     AstronautComponent,
-    ObservableComponent
+    ObservableComponent,
+    HeroNavigationComponent
   ],
   imports: [
     BrowserModule,

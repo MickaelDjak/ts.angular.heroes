@@ -1,3 +1,7 @@
+<app-hero-navigation></app-hero-navigation>
+
+<hr/>
+
 <h2>Heroes list</h2>
 
 <hero-search></hero-search>
@@ -5,12 +9,11 @@
 <hr/>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" class="hero" appHighlight highlightColor="yellow">
-    <a routerLink="/detail/{{ hero.id }}">
-      <span class="hero--badge">#{{ hero.id }}</span>
-      <p>{{ hero.name | uppercase}} </p>
+  <li *ngFor="let hero of heroes" class="hero" appHighlight highlightColor="#6ab7ff99">
+    <a routerLink="/hero/detail/{{ hero.id }}">
+       <span class="hero--badge">#{{ hero.id }}</span> {{ hero.name | uppercase}}
     </a>
-    <button title="delete the hero" (click)="delete(hero)">Delete</button>
+    <button class="btn" title="delete the hero" (click)="delete(hero)">Delete</button>
   </li>
 </ul>
 
@@ -21,8 +24,7 @@
   <label>Hero name:
     <input #heroName />
   </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
+  <button class="btn" (click)="add(heroName.value); heroName.value=''">
     add
   </button>
 </div>

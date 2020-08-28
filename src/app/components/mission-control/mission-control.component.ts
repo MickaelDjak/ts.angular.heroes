@@ -10,7 +10,7 @@ import {MissionService} from '../../services/mission/mission.service';
   ]
 })
 export class MissionControlComponent {
-  astronauts = ['first', 'second', 'last'];
+  astronauts = ['First astronauts', 'Misha Djak', 'Last astronauts'];
   history: string[] = [];
   missions: string[] = [
     'Fly to the moon!',
