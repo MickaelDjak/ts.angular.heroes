@@ -3,6 +3,9 @@ import {Routes, RouterModule} from '@angular/router';
 import {HeroesComponent} from './components/heroes/heroes.component';
 import {HeroDatailComponent} from './components/hero-datail/hero-datail.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {VoterComponent} from './components/voter/voter.component';
+import {MissionControlComponent} from './components/mission-control/mission-control.component';
+import {ObservableComponent} from './components/observable/observable.component';
 
 const routes: Routes = [
   {
@@ -16,6 +19,18 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'voter',
+    component: VoterComponent
+  },
+  {
+    path: 'mission',
+    component: MissionControlComponent
+  },
+  {
+    path: 'observable',
+    component: ObservableComponent
   },
   {
     path: '',

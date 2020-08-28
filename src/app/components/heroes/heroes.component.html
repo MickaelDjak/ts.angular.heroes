@@ -5,7 +5,7 @@
 <hr/>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" class="hero">
+  <li *ngFor="let hero of heroes" class="hero" appHighlight highlightColor="yellow">
     <a routerLink="/detail/{{ hero.id }}">
       <span class="hero--badge">#{{ hero.id }}</span>
       <p>{{ hero.name | uppercase}} </p>
@@ -17,6 +17,7 @@
 <hr/>
 
 <div>
+  <h2>Add new hero</h2>
   <label>Hero name:
     <input #heroName />
   </label>
@@ -25,3 +26,5 @@
     add
   </button>
 </div>
+<hr/>
+<app-messages></app-messages>

@@ -20,7 +20,14 @@ body, input[type="text"], button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.hero-navigation {
+:host .navigation {
   display: flex;
   flex-direction: column;
+}
+
+:host .navigation a {
+  text-decoration: none;
+  color: #336699;
+  font-weight: bold;
+
 }

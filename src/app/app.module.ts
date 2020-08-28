@@ -15,6 +15,12 @@ import {MessagesComponent} from './components/messages/messages.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { HighlightDirective } from './directive/highlight.directive';
+import { VoterComponent } from './components/voter/voter.component';
+import { VotetakerComponent } from './components/votetaker/votetaker.component';
+import { MissionControlComponent } from './components/mission-control/mission-control.component';
+import { AstronautComponent } from './components/astronaut/astronaut.component';
+import { ObservableComponent } from './components/observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,13 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
     HeroDatailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HighlightDirective,
+    VoterComponent,
+    VotetakerComponent,
+    MissionControlComponent,
+    AstronautComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
