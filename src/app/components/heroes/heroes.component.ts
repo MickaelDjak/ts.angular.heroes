@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Hero} from './hero';
 import {HeroesStorageService} from '../../services/heroes-storage/heroes-storage.service';
-import {MessangerService} from '../../services/messanger/messanger.service';
 
 @Component({
   selector: 'app-heroes',
@@ -11,17 +10,31 @@ import {MessangerService} from '../../services/messanger/messanger.service';
 export class HeroesComponent implements OnInit {
 
   heroes: Array<Hero>;
-  selectedHero: Hero;
 
-  constructor(private storage: HeroesStorageService, private messenger: MessangerService) {
+  constructor(private storage: HeroesStorageService) {
   }
 
   ngOnInit(): void {
     this.storage.get().subscribe(heroes => this.heroes = heroes);
   }
 
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-    this.messenger.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  add(name): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+
+    this.storage.add({name} as Hero).subscribe(
+      hero => this.heroes.push(hero)
+    );
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.storage.delete(hero).subscribe();
+  }
+
+  search(term: string) {
+    this.storage.search(term).subscribe(heroes => this.heroes = heroes);
   }
 }

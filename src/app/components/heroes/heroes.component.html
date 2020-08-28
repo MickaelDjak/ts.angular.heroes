@@ -1,13 +1,27 @@
+<h2>Heroes list</h2>
+
+<hero-search></hero-search>
+
+<hr/>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes"
-      class="hero"
-      (click)="onSelect(hero)"
-      [class.selected]="hero==selectedHero"
-  >
-    <span class="hero--badge">#{{ hero.id }}</span> <p>{{ hero.name | uppercase}} </p>
-
+  <li *ngFor="let hero of heroes" class="hero">
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="hero--badge">#{{ hero.id }}</span>
+      <p>{{ hero.name | uppercase}} </p>
+    </a>
+    <button title="delete the hero" (click)="delete(hero)">Delete</button>
   </li>
 </ul>
-<app-hero-datail [hero]="selectedHero"></app-hero-datail>
 
+<hr/>
+
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>

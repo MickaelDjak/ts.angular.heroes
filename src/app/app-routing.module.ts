@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HeroesComponent} from './components/heroes/heroes.component';
+import {HeroDatailComponent} from './components/hero-datail/hero-datail.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -9,8 +10,17 @@ const routes: Routes = [
     component: HeroesComponent
   },
   {
+    path: 'detail/:id',
+    component: HeroDatailComponent
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   }
 ];
 
