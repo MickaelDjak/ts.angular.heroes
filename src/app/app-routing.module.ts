@@ -6,17 +6,19 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {VoterComponent} from './components/voter/voter.component';
 import {MissionControlComponent} from './components/mission-control/mission-control.component';
 import {ObservableComponent} from './components/observable/observable.component';
+import {StockManageComponent} from './components/stock-manage/stock-manage.component';
+import {StockDashboardComponent} from './components/stock-dashboard/stock-dashboard.component';
+import {StockLayoutComponent} from './components/stock-layout/stock-layout.component';
 
 const routes: Routes = [
-  {path: 'hero', component: HeroesComponent,},
+  {path: 'hero', component: HeroesComponent},
   {path: 'hero/dashboard', component: DashboardComponent},
   {path: 'hero/detail/:id', component: HeroDatailComponent},
-  // {path: 'heroes', component: HeroesComponent},
-  // {path: 'detail/:id', component: HeroDatailComponent},
-  // {path: 'dashboard', component: DashboardComponent},
   {path: 'voter', component: VoterComponent},
   {path: 'mission', component: MissionControlComponent},
   {path: 'observable', component: ObservableComponent},
+  {path: 'stock', component: StockDashboardComponent},
+  { path: 'stock/manage', component: StockManageComponent },
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 

@@ -1,0 +1,10 @@
+<app-stock-layout></app-stock-layout>
+<hr/>
+<div class="stock-list">
+  <div class="mdl-cell mdl-cell--12-col" style="text-align: center" *ngIf="!stocks">
+    Loading ...
+  </div>
+  <div  class="stock-item" *ngFor="let stock of stocks">
+    <stock-summary [stock]="stock"></stock-summary>
+  </div>
+</div>

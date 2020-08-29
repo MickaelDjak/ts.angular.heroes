@@ -1,0 +1,7 @@
+<div>
+  <div class=" stock-card " [ngClass]="{increase: isPositive(), decrease: isNegative()}">
+      <h4 style="color: #fff; margin: 0"> {{stock?.symbol?.toUpperCase()}}</h4>
+      <p>{{stock?.lastTradePriceOnly | currency:'USD':'symbol':'.2'}}</p>
+      <p>{{stock?.change | currency:'USD':'symbol':'.2'}} ({{stock?.changeInPercent | percent:'.2'}})</p>
+  </div>
+</div>
