@@ -1,0 +1,8 @@
+<th scope="row">{{node.name}}</th>
+<td [ngClass]="isDanger('cpu') ? 'danger' : ''">{{ node.cpu.used }} / {{node.cpu.available}}</td>
+<td [ngClass]="isDanger('cpu') ? 'danger' : ''">{{ node.cpu.used / node.cpu.available | percent:'1.2'}}</td>
+<td [ngClass]="isDanger('mem') ? 'danger' : ''">{{ node.mem.used }} / {{node.mem.available}}</td>
+<td [ngClass]="isDanger('mem') ? 'danger' : ''">{{ node.mem.used / node.mem.available | percent:'1.2'}}</td>
+<td>
+  <button class="btn">View</button>
+</td>

@@ -1,0 +1,8 @@
+<div class="monitor-metric" [ngClass]="isDanger() ? 'danger' : ''">
+  <header>{{ name }}</header>
+  <div>
+    <p class="monitor-metric--percentage">{{ used }} / {{ available }} ({{ used / available | percent:'1.0-2' }})</p>
+    <p>{{ description }}</p>
+    <progress max="{{available}}" value="{{used}}"></progress>
+  </div>
+</div>

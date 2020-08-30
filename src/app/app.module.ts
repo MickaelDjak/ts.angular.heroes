@@ -27,6 +27,11 @@ import {StockManageComponent} from './components/stock-manage/stock-manage.compo
 import {StocksService} from './services/stock-services/stocks.service';
 import {StockDashboardComponent} from './components/stock-dashboard/stock-dashboard.component';
 import { StockLayoutComponent } from './components/stock-layout/stock-layout.component';
+import { MonitorLayoutComponent } from './components/monitor-layout/monitor-layout.component';
+import { MonitorDashboardComponent } from './components/monitor-dashboard/monitor-dashboard.component';
+import { MonitorMetricComponent } from './components/monitor-metric/monitor-metric.component';
+import { MonitorNodesComponent } from './components/monitor-nodes/monitor-nodes.component';
+import { MonitorNodeRowComponent } from './components/monitor-node-row/monitor-node-row.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { StockLayoutComponent } from './components/stock-layout/stock-layout.com
     StockSummaryComponent,
     StockDashboardComponent,
     StockManageComponent,
-    StockLayoutComponent
+    StockLayoutComponent,
+    MonitorLayoutComponent,
+    MonitorDashboardComponent,
+    MonitorMetricComponent,
+    MonitorNodesComponent,
+    MonitorNodeRowComponent
   ],
   imports: [
     BrowserModule,

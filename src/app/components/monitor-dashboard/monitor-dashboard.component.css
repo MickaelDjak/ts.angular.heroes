@@ -1,0 +1,54 @@
+:host section {
+  border: 1px #22222233 solid;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+:host section h2 {
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  background: #33669912;
+}
+
+:host .monitor-dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+:host .monitor-dashboard .monitor-dashboard--total-metrics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+:host table {
+  width: 100%;
+}
+
+:host table th {
+  font-weight: bold;
+  padding: 5px 0;
+  ;
+}
+
+:host table, th, td {
+  border: 1px #22222233 solid;
+  text-align: center
+}
+
+:host table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+:host table tr:hover {
+  background: #6ab7ff33;
+}
+
+:host tr {
+  border: 1px black solid;
+}
+
+
+

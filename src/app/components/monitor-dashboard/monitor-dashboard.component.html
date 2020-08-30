@@ -1,0 +1,39 @@
+<div class="monitor-dashboard">
+  <section>
+    <h2>Monitor total metrics</h2>
+    <div>
+      <div class="monitor-dashboard--total-metrics">
+        <app-monitor-metric
+          [name]="'CPU'"
+          [description]="'utilization of CPU cores'"
+          [used]="this.cpu.used"
+          [available]="this.cpu.available"
+        ></app-monitor-metric>
+
+        <app-monitor-metric
+          [name]="'Memory'"
+          [description]="'utilization of memory in GB'"
+          [used]="this.mem.used"
+          [available]="this.mem.available"
+        ></app-monitor-metric>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cluster 1</h2>
+    <div>
+      <table app-monitor-nodes>
+        <tr app-monitor-node-row *ngFor="let node of cluster1" [node]="node"></tr>
+      </table>
+    </div>
+
+    <h2>Cluster 2</h2>
+    <div>
+      <table app-monitor-nodes>
+        <tr app-monitor-node-row *ngFor="let node of cluster2" [node]="node"></tr>
+      </table>
+    </div>
+  </section>
+
+</div>

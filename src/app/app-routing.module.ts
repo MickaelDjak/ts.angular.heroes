@@ -8,7 +8,7 @@ import {MissionControlComponent} from './components/mission-control/mission-cont
 import {ObservableComponent} from './components/observable/observable.component';
 import {StockManageComponent} from './components/stock-manage/stock-manage.component';
 import {StockDashboardComponent} from './components/stock-dashboard/stock-dashboard.component';
-import {StockLayoutComponent} from './components/stock-layout/stock-layout.component';
+import {MonitorLayoutComponent} from './components/monitor-layout/monitor-layout.component';
 
 const routes: Routes = [
   {path: 'hero', component: HeroesComponent},
@@ -18,7 +18,8 @@ const routes: Routes = [
   {path: 'mission', component: MissionControlComponent},
   {path: 'observable', component: ObservableComponent},
   {path: 'stock', component: StockDashboardComponent},
-  { path: 'stock/manage', component: StockManageComponent },
+  {path: 'stock/manage', component: StockManageComponent },
+  {path: 'monitor', component: MonitorLayoutComponent },
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 

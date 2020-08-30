@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+}
+
+:host .monitor-metric {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  border: 1px #336699 solid;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+:host .monitor-metric header {
+  background: #005cb2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+:host .monitor-metric > div {
+  padding: 5px 15px;
+}
+
+:host .monitor-metric progress {
+  width: 100%;
+}
+
+:host .monitor-metric--percentage {
+  font-weight: bold;
+}
+
+:host .monitor-metric.danger {
+  background: #b2000022;
+}
+
+:host .monitor-metric.danger header {
+  background: #b20000;
+}
+
+:host .monitor-metric.danger .monitor-metric--percentage {
+  color: #b20000;
+}
