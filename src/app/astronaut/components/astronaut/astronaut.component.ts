@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
     <p>
       {{astronaut}}: <strong>{{mission}}</strong>
       <button
-        class="btn"
+        class="btn btn-primary"
         (click)="confirm()"
         [disabled]="!announced || confirmed">
         Confirm

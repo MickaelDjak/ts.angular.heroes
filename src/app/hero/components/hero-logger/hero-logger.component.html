@@ -1,6 +1,6 @@
 <div *ngIf="messenger.messages.length">
   <h2>Hero logger actions</h2>
-  <button class="btn" (click)="messenger.clear()">Clear</button>
+  <button class="btn btn-primary" (click)="messenger.clear()">Clear</button>
   <div class="log-data">
     <div *ngFor="let message of messenger.messages">{{ message}}</div>
   </div>

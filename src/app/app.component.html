@@ -1,13 +1,33 @@
-<h1>{{title}}</h1>
-<nav class="navigation">
-  <a routerLink="/hero">Hero</a>
-  <a routerLink="/voter">Voter</a>
-  <a routerLink="/mission">Mission</a>
-  <a routerLink="/observable">Observable</a>
-  <a routerLink="/stock">Stock</a>
-  <a routerLink="/monitor">Monitor</a>
-  <a>Todo</a>
-</nav>
-<hr/>
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h2>Apps</h2>
+      <nav class="navigation">
+        <a routerLink="/hero">Hero</a>
+        <a routerLink="/voter">Voter</a>
+        <a routerLink="/mission">Mission</a>
+        <a routerLink="/stock">Stock</a>
+        <a routerLink="/monitor">Monitor</a>
+        <a>Todo</a>
+      </nav>
+    </div>
+    <div class="col-3">
+      <h2>Examples</h2>
+      <nav class="navigation">
+        <a routerLink="/observable">Observable</a>
+        <a routerLink="/forms">Forms</a>
+      </nav>
+    </div>
+  </div>
+</div>
 
+<hr/>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
