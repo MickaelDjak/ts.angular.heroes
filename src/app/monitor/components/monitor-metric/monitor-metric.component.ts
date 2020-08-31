@@ -1,39 +1,26 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-monitor-metric',
   templateUrl: './monitor-metric.component.html',
-  styleUrls: ['./monitor-metric.component.css']
+  styleUrls: ['./monitor-metric.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MonitorMetricComponent {
-  @Input() name: string;
-  @Input() description: string;
-  private _used: number;
-  private _available: number;
-
-  @Input() set used(value: number) {
-    if (isNaN(value)) {
-      value = 0;
-    }
-    this._used = value;
-  }
-
-  get used(): number {
-    return this._used;
-  }
-
-  @Input() set available(value: number) {
-    if (isNaN(value)) {
-      value = 100;
-    }
-    this._available = value;
-  }
-
-  get available(): number {
-    return this._available;
-  }
+export class MonitorMetricComponent implements OnChanges {
+  @Input() used: number;
+  @Input() available: number;
 
   isDanger(): boolean {
     return this.used / this.available > 0.7;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.used && isNaN(changes.used.currentValue)) {
+      this.used = 0;
+    }
+
+    if (changes.available && isNaN(changes.available.currentValue)) {
+      this.available = 0;
+    }
   }
 }

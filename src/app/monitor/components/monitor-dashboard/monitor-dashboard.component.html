@@ -3,19 +3,15 @@
     <h2>Monitor total metrics</h2>
     <div>
       <div class="monitor-dashboard--total-metrics">
-        <app-monitor-metric
-          [name]="'CPU'"
-          [description]="'utilization of CPU cores'"
-          [used]="this.cpu.used"
-          [available]="this.cpu.available"
-        ></app-monitor-metric>
+        <app-monitor-metric [used]="this.cpu.used" [available]="this.cpu.available">
+          <div class="name">CPU</div>
+          <div class="description">utilization of CPU cores</div>
+        </app-monitor-metric>
 
-        <app-monitor-metric
-          [name]="'Memory'"
-          [description]="'utilization of memory in GB'"
-          [used]="this.mem.used"
-          [available]="this.mem.available"
-        ></app-monitor-metric>
+        <app-monitor-metric [used]="this.mem.used" [available]="this.mem.available">
+          <div class="name">Memory</div>
+          <div class="description">utilization of memory in GB</div>
+        </app-monitor-metric>
       </div>
     </div>
   </section>

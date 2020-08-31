@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 
-export  interface Metric {
+export interface Metric {
   used: number;
   available: number;
 }
@@ -14,7 +14,8 @@ export interface Node {
 @Component({
   selector: 'app-monitor-dashboard',
   templateUrl: './monitor-dashboard.component.html',
-  styleUrls: ['./monitor-dashboard.component.css']
+  styleUrls: ['./monitor-dashboard.component.css'],
+  exportAs: 'monitorDashboard'
 })
 export class MonitorDashboardComponent implements OnInit, OnDestroy {
   cpu: Metric;
@@ -38,9 +39,11 @@ export class MonitorDashboardComponent implements OnInit, OnDestroy {
     this.cluster2 = [];
     this.cpu = {used: 0, available: 0};
     this.mem = {used: 0, available: 0};
+
     for (let i = 1; i < 4; i++) {
       this.cluster1.push(this.randomNode(i));
     }
+
     for (let j = 1; j < 6; j++) {
       this.cluster2.push(this.randomNode(j));
     }

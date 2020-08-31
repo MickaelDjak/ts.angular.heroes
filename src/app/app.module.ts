@@ -27,6 +27,5 @@ import {OtherModule} from './other/other.module';
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
 }
