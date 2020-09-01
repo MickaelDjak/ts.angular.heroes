@@ -9,6 +9,10 @@ import {MonitorRefresherComponent} from './components/monitor-refresher/monitor-
 
 import {MonitorRoutingModule} from './monitor-routing.module';
 import {MonitorLayoutComponent} from './components/monitor-layout/monitor-layout.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NodeDetailComponent} from './components/node-detail/node-detail.component';
+import {DangerDetectorService} from './services/dangerDetector/danger-detector.service';
+import {AlertComponent} from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +22,21 @@ import {MonitorLayoutComponent} from './components/monitor-layout/monitor-layout
     MonitorNodesComponent,
     MonitorNodeRowComponent,
     MonitorRefresherComponent,
+    NodeDetailComponent,
+    AlertComponent
+  ],
+  entryComponents: [
+    NodeDetailComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     MonitorRoutingModule
   ],
+  providers: [
+    DangerDetectorService
+  ]
 })
 export class MonitorModule {
 }

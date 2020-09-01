@@ -5,6 +5,6 @@
   <div>
     <p class="monitor-metric--percentage">{{ used }} / {{ available }} ({{ used / available | percent:'1.0-2' }})</p>
     <ng-content select=".description"></ng-content>
-    <progress max="{{available}}" value="{{used}}"></progress>
+    <ngb-progressbar [type]="isDanger() ? 'danger' : 'primary'" max="{{available}}" value="{{used}}"></ngb-progressbar>
   </div>
 </div>

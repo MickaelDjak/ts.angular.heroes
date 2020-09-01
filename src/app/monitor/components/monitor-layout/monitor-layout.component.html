@@ -1,2 +1,4 @@
-<app-monitor-refresher (onRefresh)="monitorDashboard.generateData()"></app-monitor-refresher>
-<app-monitor-dashboard #monitorDashboard></app-monitor-dashboard>
+<ng-template #alertBox></ng-template>
+<app-monitor-refresher (onRefresh)="refreshing($event);"></app-monitor-refresher>
+<app-monitor-dashboard></app-monitor-dashboard>
+

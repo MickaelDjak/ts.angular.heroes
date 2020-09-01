@@ -1,15 +1,5 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-
-export interface Metric {
-  used: number;
-  available: number;
-}
-
-export interface Node {
-  name: string;
-  cpu: Metric;
-  mem: Metric;
-}
+import {Component, OnInit, OnDestroy, Output} from '@angular/core';
+import {Metric, Node} from '../../model/model';
 
 @Component({
   selector: 'app-monitor-dashboard',

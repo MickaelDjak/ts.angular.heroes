@@ -10,6 +10,7 @@ import {VoterModule} from './voter/voter.module';
 import {AstronautModule} from './astronaut/astronaut.module';
 import {StockModule} from './stock/stock.module';
 import {OtherModule} from './other/other.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {OtherModule} from './other/other.module';
     VoterModule,
     AstronautModule,
     StockModule,
-    OtherModule
+    OtherModule,
+    NgbModule
   ],
   bootstrap: [AppComponent]
 })

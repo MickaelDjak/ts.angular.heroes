@@ -1,14 +1,21 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'app-monitor-refresher',
   templateUrl: './monitor-refresher.component.html',
   styleUrls: ['./monitor-refresher.component.css']
 })
-export class MonitorRefresherComponent {
-  @Output() onRefresh: EventEmitter<null> = new EventEmitter<null>();
+export class MonitorRefresherComponent implements AfterViewInit {
+
+  @Output() onRefresh: EventEmitter<Date> = new EventEmitter<Date>();
+
+  @ViewChild('monitorHeaderName', {static: false}) monitorHeaderName: ElementRef;
 
   refresh(): void {
-    this.onRefresh.emit();
+    this.onRefresh.emit(new Date());
+  }
+
+  ngAfterViewInit(): void {
+    this.monitorHeaderName.nativeElement.textContent = 'Monitor dashboard ';
   }
 }

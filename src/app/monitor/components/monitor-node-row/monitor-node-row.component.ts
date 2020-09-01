@@ -1,5 +1,8 @@
-import {Component, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges} from '@angular/core';
-import {Node} from '../monitor-dashboard/monitor-dashboard.component';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
+import {Node} from '../../model/model';
+import {DangerDetectorService} from '../../services/dangerDetector/danger-detector.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NodeDetailComponent} from '../node-detail/node-detail.component';
 
 @Component({
   selector: '[app-monitor-node-row]',
@@ -10,8 +13,15 @@ import {Node} from '../monitor-dashboard/monitor-dashboard.component';
 export class MonitorNodeRowComponent {
   @Input() node: Node;
 
+  constructor(private modalService: NgbModal, private dangerDetector: DangerDetectorService) {
+  }
 
   isDanger(type: string): boolean {
-    return this.node[type].used / this.node[type].available > 0.7;
+    return this.dangerDetector.isDanger(this.node[type].used, this.node[type].available);
+  }
+
+  open(node: Node): void {
+    const modal = this.modalService.open(NodeDetailComponent);
+    modal.componentInstance.node = this.node;
   }
 }
