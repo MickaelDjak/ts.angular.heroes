@@ -17,6 +17,7 @@ import {MessangerService} from './services/messanger/messanger.service';
 import {InMemoryDataService} from './services/in-memory-data/in-memory-data.service';
 
 import {HeroRoutingModule} from './hero-routing.module';
+import { HeroAddComponent } from './components/hero-add/hero-add.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import {HeroRoutingModule} from './hero-routing.module';
     HeroNavigationComponent,
 
     HighlightDirective,
+
+    HeroAddComponent,
   ],
   imports: [
     BrowserModule,

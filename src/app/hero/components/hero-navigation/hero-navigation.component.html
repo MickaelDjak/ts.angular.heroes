@@ -1,4 +1,5 @@
 <nav class="navigation">
-  <a routerLink="/hero">List</a>
-  <a routerLink="/hero/dashboard">Dashboard</a>
+  <a routerLink="/hero" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">List</a>
+  <a routerLink="/hero/add"  routerLinkActive="active">Add</a>
+  <a routerLink="/hero/dashboard"  routerLinkActive="active">Dashboard</a>
 </nav>
