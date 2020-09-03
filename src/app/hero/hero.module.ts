@@ -8,7 +8,6 @@ import {HeroDatailComponent} from './components/hero-datail/hero-datail.componen
 import {HeroLoggerComponent} from './components/hero-logger/hero-logger.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {HeroSearchComponent} from './components/hero-search/hero-search.component';
-import {HeroNavigationComponent} from './components/hero-navigation/hero-navigation.component';
 
 import {HighlightDirective} from './directive/highlight.directive';
 
@@ -26,10 +25,7 @@ import { HeroAddComponent } from './components/hero-add/hero-add.component';
     HeroLoggerComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroNavigationComponent,
-
     HighlightDirective,
-
     HeroAddComponent,
   ],
   imports: [

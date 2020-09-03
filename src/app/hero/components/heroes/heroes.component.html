@@ -1,12 +1,14 @@
-<app-hero-navigation></app-hero-navigation>
+<nav class="navigation">
+  <a routerLink="/hero"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">List</a>
+  <a routerLink="/hero/add"  routerLinkActive="active">Add</a>
+  <a routerLink="/hero/dashboard"  routerLinkActive="active">Dashboard</a>
+  <a routerLink="/hero/search"  routerLinkActive="active">Search</a>
+  <a routerLink="/hero/log"  routerLinkActive="active">Logger</a>
+</nav>
 
 <hr/>
 
 <h2>Heroes list</h2>
-
-<hero-search></hero-search>
-
-<hr/>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes" class="hero" appHighlight highlightColor="#6ab7ff99">
@@ -19,7 +21,5 @@
 
 <hr/>
 
-<hero-add (onAdd)="add($event)"></hero-add>
+<router-outlet></router-outlet>
 
-<hr/>
-<app-messages></app-messages>
