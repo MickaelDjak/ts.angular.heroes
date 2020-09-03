@@ -1,11 +1,8 @@
 <h2>Add new hero</h2>
-<hr/>
-<div>
 
+<div>
   <label>Hero name:
     <input #heroName />
   </label>
-  <button class="btn btn-primary" (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
+  <button class="btn btn-primary" (click)="add(heroName.value); heroName.value=''">Add</button>
 </div>
