@@ -7,11 +7,11 @@ export class HighlightDirective {
 
   @Input() highlightColor: string;
 
-  @HostListener('mouseenter') onMouseEnter() {
+  @HostListener('mouseenter') onMouseEnter(): void {
     this.highlight(this.highlightColor);
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener('mouseleave') onMouseLeave(): void {
     this.highlight(null);
   }
 

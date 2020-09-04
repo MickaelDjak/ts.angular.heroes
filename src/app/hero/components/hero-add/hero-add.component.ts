@@ -1,4 +1,5 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component} from '@angular/core';
+import {StorageService} from '../../services/storage/storage.service';
 
 @Component({
   selector: 'hero-add',
@@ -6,9 +7,10 @@ import {Component, Output, EventEmitter} from '@angular/core';
 })
 export class HeroAddComponent {
 
-  @Output() onAdd: EventEmitter<string> = new EventEmitter<string>();
+  constructor(private storage: StorageService) {
+  }
 
-  add(name: string) {
-    this.onAdd.emit(name);
+  add(name: string): void {
+    this.storage.add({id: 14, name});
   }
 }

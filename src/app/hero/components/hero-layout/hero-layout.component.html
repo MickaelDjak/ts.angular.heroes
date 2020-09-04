@@ -1,0 +1,26 @@
+<nav class="navigation">
+  <a routerLink="/hero" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">List</a>
+  <a routerLink="/hero/add" routerLinkActive="active">Add</a>
+  <a routerLink="/hero/leaders" routerLinkActive="active">Leaders</a>
+  <a routerLink="/hero/search" routerLinkActive="active">Search</a>
+  <a routerLink="/hero/log" routerLinkActive="active">Logger</a>
+</nav>
+
+<hr/>
+
+<h2>Heroes list</h2>
+
+<div class="container">
+  <ul class="row heroes " *ngIf="heroListData$ | async as heroListData">
+    <li class="col-3 hero d-flex justify-content-around" *ngFor="let hero of heroListData" appHighlight highlightColor="#6ab7ff99">
+      <a routerLink="/hero/detail/{{ hero.id }}"> #{{ hero.id }} {{ hero.name | uppercase}} </a>
+      <button class="btn btn-link" title="delete the hero" (click)="delete(hero)">X</button>
+    </li>
+  </ul>
+</div>
+
+<hr/>
+
+<router-outlet></router-outlet>
+
+<hr/>

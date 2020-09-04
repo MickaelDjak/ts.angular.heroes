@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
-import {Hero} from '../heroes/hero';
-import {HeroesStorageService} from '../../services/heroes-storage/heroes-storage.service';
+import {Hero} from '../hero-layout/hero';
+
+import {StorageService} from '../../services/storage/storage.service';
 
 @Component({
   selector: 'hero-search',
@@ -14,11 +15,7 @@ export class HeroSearchComponent implements OnInit {
   heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private service: HeroesStorageService) {
-  }
-
-  search(term: string): void {
-    this.searchTerms.next(term);
+  constructor(private service: StorageService) {
   }
 
   ngOnInit(): void {
@@ -29,4 +26,7 @@ export class HeroSearchComponent implements OnInit {
     );
   }
 
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
 }

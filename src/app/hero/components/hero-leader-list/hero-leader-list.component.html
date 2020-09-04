@@ -1,0 +1,7 @@
+<h2>List of hero leaders</h2>
+
+<div class="row">
+  <a *ngFor="let hero of heroes" class="col-12" routerLink="/hero/detail/{{hero.id}}">
+    <span class="module hero">{{hero.name}}</span>
+  </a>
+</div>

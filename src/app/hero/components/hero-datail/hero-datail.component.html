@@ -2,13 +2,13 @@
 
 <div *ngIf="hero">
   <p>Details #{{ hero.id }} {{ hero.name | uppercase}}</p>
-  <label class="hero--badge"> Name </label>
-  <input [(ngModel)]="hero.name" placeholder="name"/>
-  <button class="btn btn-primary" (click)="save()">Save</button>
+  <label for="name" class="hero--badge"> Name </label>
+  <input id="name" placeholder="name" #name [value]="hero.name"/>
+  <button class="btn btn-primary" (click)="save(name.value)">Save</button>
 </div>
 
 <div *ngIf="!hero">
   <p>Hero is absent </p>
 </div>
 
-<button class="btn btn-primary" (click)="goBack()"> Go back </button>
+<button class="btn btn-primary" (click)="goBack()"> Go back</button>

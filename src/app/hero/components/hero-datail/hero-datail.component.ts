@@ -1,10 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Location} from '@angular/common';
 
-import {HeroesStorageService} from '../../services/heroes-storage/heroes-storage.service';
-import {Hero} from '../heroes/hero';
-
+import {Hero} from '../hero-layout/hero';
+import {StorageService} from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-hero-datail',
@@ -16,27 +15,25 @@ export class HeroDatailComponent implements OnInit {
   @Input() hero: Hero;
 
   constructor(
-    private service: HeroesStorageService,
+    private service: StorageService,
     private router: ActivatedRoute,
     private location: Location) {
   }
 
   ngOnInit(): void {
-    this.getHero();
-  }
-
-  getHero(): void {
-    const id = +this.router.snapshot.paramMap.get('id');
-    this.service.getOne(id).subscribe(hero => this.hero = hero);
+    this.router.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = +paramMap.get('id');
+      this.service.getOne(id).subscribe(hero => this.hero = hero);
+    });
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
-    this.service.update(this.hero)
-      .subscribe(() => this.goBack());
+  save(name: string): void {
+    console.log(name);
+    this.service.update({id: this.hero.id, name});
   }
 
 }
