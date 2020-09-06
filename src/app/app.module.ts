@@ -11,6 +11,7 @@ import {VoterModule} from './voter/voter.module';
 import {AstronautModule} from './astronaut/astronaut.module';
 import {StockModule} from './stock/stock.module';
 import {OtherModule} from './other/other.module';
+import {ConduitModule} from './conduit/conduit.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {OtherModule} from './other/other.module';
     AstronautModule,
     StockModule,
     OtherModule,
+    ConduitModule,
   ],
   bootstrap: [AppComponent]
 })
