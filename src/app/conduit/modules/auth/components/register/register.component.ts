@@ -4,9 +4,10 @@ import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
 import {registerAction} from '../../store/actions/register.action';
-import {isSubmittingSelector} from '../../store/selectors';
+import {isSubmittingSelector, validationMessageSelector} from '../../store/selectors';
 import {AuthService} from '../../services/auth.service';
 import {RegisterRequestInterface} from '../../types/registerRequest.interface';
+import {ErrorReportInterface} from '../../../../shered/types/errorReport.interface';
 
 @Component({
   selector: 'con-auth-register',
@@ -18,6 +19,7 @@ export class RegisterComponent implements OnInit {
   fg: FormGroup;
 
   isSubmitting$: Observable<boolean>;
+  validationMessages$: Observable<ErrorReportInterface>;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private store: Store) {
   }
@@ -37,6 +39,8 @@ export class RegisterComponent implements OnInit {
 
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.validationMessages$ = this.store.pipe(select(validationMessageSelector));
+
   }
 
   onSubmit(): void {

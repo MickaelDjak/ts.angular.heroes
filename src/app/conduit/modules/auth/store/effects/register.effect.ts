@@ -6,7 +6,8 @@ import {of} from 'rxjs';
 import {registerAction, registerFailureAction, registerSuccessAction} from '../actions/register.action';
 import {AuthService} from '../../services/auth.service';
 import {CurrentUserInterface} from '../../../../shered/types/currentUser.interface';
-
+import {ErrorReportInterface} from '../../../../shered/types/errorReport.interface';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Injectable()
 export class RegisterEffect {
@@ -19,8 +20,8 @@ export class RegisterEffect {
             map((currentUser: CurrentUserInterface) => {
               return registerSuccessAction({currentUser});
             }),
-            catchError(() => {
-              return of(registerFailureAction());
+            catchError((errorResponse: HttpErrorResponse) => {
+              return of(registerFailureAction({errors: errorResponse.error.errors}));
             })
           );
       })

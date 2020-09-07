@@ -5,6 +5,17 @@
       <p class="text-center">
         <!--        <a routerLink="test">Have an account?</a>-->
       </p>
+      <p class="text-center">
+        {{  validationMessages$ | async | json }}
+<!--        <ng-container *ngIf="validationMessages$ | async">-->
+<!--          <div *ngFor="let errorList of validationMessages$ | async">-->
+<!--            {{ errorList | async | json}}-->
+<!--            <ng-container *ngFor="let error of errorList ">-->
+<!--              <span>{{error}}</span>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+<!--        </ng-container>-->
+      </p>
       <form [formGroup]="fg" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="username">User name</label>

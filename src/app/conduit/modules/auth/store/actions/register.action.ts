@@ -3,6 +3,7 @@ import {createAction, props} from '@ngrx/store';
 import {ActionTypes} from '../actionTypes';
 import {RegisterRequestInterface} from '../../types/registerRequest.interface';
 import {CurrentUserInterface} from '../../../../shered/types/currentUser.interface';
+import {ErrorReportInterface} from '../../../../shered/types/errorReport.interface';
 
 export const registerAction = createAction(
   ActionTypes.REGISTER,
@@ -15,6 +16,7 @@ export const registerSuccessAction = createAction(
 );
 
 export const registerFailureAction = createAction(
-  ActionTypes.REGISTER_FAILURE
+  ActionTypes.REGISTER_FAILURE,
+  props<{ errors: ErrorReportInterface }>()
 );
 
