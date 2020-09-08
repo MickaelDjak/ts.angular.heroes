@@ -10,10 +10,12 @@ import {RegisterComponent} from './components/register/register.component';
 import {AuthService} from './services/auth.service';
 import {EffectsModule} from '@ngrx/effects';
 import {RegisterEffect} from './store/effects/register.effect';
+import { ValidationViewerComponent } from './components/validation-viewer/validation-viewer.component';
 
 @NgModule({
   declarations: [
-    RegisterComponent
+    RegisterComponent,
+    ValidationViewerComponent
   ],
   providers: [
     AuthService
