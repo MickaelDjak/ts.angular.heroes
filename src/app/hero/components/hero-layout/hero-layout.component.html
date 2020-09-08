@@ -1,18 +1,27 @@
-<nav class="navigation">
-  <a routerLink="/hero" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">List</a>
-  <a routerLink="/hero/add" routerLinkActive="active">Add</a>
-  <a routerLink="/hero/leaders" routerLinkActive="active">Leaders</a>
-  <a routerLink="/hero/search" routerLinkActive="active">Search</a>
-  <a routerLink="/hero/log" routerLinkActive="active">Logger</a>
-</nav>
+<header class="my-4">
+  <div class="navbar navbar-light shadow-sm" style="background-color: #b3dfff;">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/hero" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}">
+        <strong>Hero</strong>
+      </a>
 
-<hr/>
+      <div class="d-flex justify-content-end">
+        <a class="nav-link text-white" routerLink="/hero/add" routerLinkActive="text-primary">Add</a>
+        <a class="nav-link text-white" routerLink="/hero/leaders" routerLinkActive="text-primary">Leaders</a>
+        <a class="nav-link text-white" routerLink="/hero/search" routerLinkActive="text-primary">Search</a>
+        <a class="nav-link text-white" routerLink="/hero/log" routerLinkActive="text-primary">Logger</a>
+      </div>
+    </div>
+  </div>
+</header>
 
 <h2>Heroes list</h2>
 
 <div class="container">
   <ul class="row heroes " *ngIf="heroListData$ | async as heroListData">
-    <li class="col-3 hero d-flex justify-content-around" *ngFor="let hero of heroListData" appHighlight highlightColor="#6ab7ff99">
+    <li class="col-3 hero d-flex justify-content-around" *ngFor="let hero of heroListData" appHighlight
+        highlightColor="#6ab7ff99">
       <a routerLink="/hero/detail/{{ hero.id }}"> #{{ hero.id }} {{ hero.name | uppercase}} </a>
       <button class="btn btn-link" title="delete the hero" (click)="delete(hero)">X</button>
     </li>
@@ -22,5 +31,3 @@
 <hr/>
 
 <router-outlet></router-outlet>
-
-<hr/>

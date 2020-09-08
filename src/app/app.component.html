@@ -1,34 +1,45 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1>{{title}}</h1>
+<header class="mb-4">
+  <div class="collapse navbar-light" id="navbarHeader" style="background-color: #b3dfff;">
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-sm-4">
+          <h4 >Simple apps</h4>
+          <nav class="navigation">
+            <a routerLink="/voter" routerLinkActive="active">Voter</a>
+            <a routerLink="/mission" routerLinkActive="active">Mission</a>
+            <a routerLink="/stock" routerLinkActive="active">Stock</a>
+          </nav>
+        </div>
+        <div class="col-sm-4">
+          <h4 >Complex apps</h4>
+          <nav class="navigation">
+            <a routerLink="/monitor" routerLinkActive="active">Monitor</a>
+            <a routerLink="/hero" routerLinkActive="active">Hero</a>
+            <a routerLink="/conduit" routerLinkActive="active">Conduit</a>
+            <a>Todo</a>
+          </nav>
+        </div>
+        <div class="col-sm-4">
+          <h4>Examples</h4>
+          <nav class="navigation">
+            <a routerLink="/observable" routerLinkActive="active">Observable</a>
+            <a routerLink="/forms" routerLinkActive="active">Forms</a>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-3">
-      <h2>Apps</h2>
-      <nav class="navigation">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a routerLink="/hero" routerLinkActive="active">Hero</a>
-        <a routerLink="/voter" routerLinkActive="active">Voter</a>
-        <a routerLink="/mission" routerLinkActive="active">Mission</a>
-        <a routerLink="/stock" routerLinkActive="active">Stock</a>
-        <a routerLink="/monitor" routerLinkActive="active">Monitor</a>
-        <a routerLink="/conduit" routerLinkActive="active">Conduit</a>
-        <a>Todo</a>
-      </nav>
-    </div>
-    <div class="col-3">
-      <h2>Examples</h2>
-      <nav class="navigation">
-        <a routerLink="/observable" routerLinkActive="active">Observable</a>
-        <a routerLink="/forms" routerLinkActive="active">Forms</a>
-      </nav>
+  <div class="navbar navbar-light  shadow-sm" style="background-color: #b3dfff;">
+    <div class="container d-flex justify-content-between">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="navbar-brand d-flex align-items-center">
+        <strong>{{title}}</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   </div>
-</div>
-
-<hr/>
+</header>
 
 <div class="container wrapper">
   <router-outlet></router-outlet>

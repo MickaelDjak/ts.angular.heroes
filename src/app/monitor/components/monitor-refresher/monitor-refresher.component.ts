@@ -16,6 +16,6 @@ export class MonitorRefresherComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.monitorHeaderName.nativeElement.textContent = 'Monitor hero-leader-list ';
+    this.monitorHeaderName.nativeElement.textContent = 'Monitor ';
   }
 }
