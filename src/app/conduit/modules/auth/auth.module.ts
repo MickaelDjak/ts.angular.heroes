@@ -2,30 +2,39 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 import {reducers} from './store/reducer';
 
 import {RegisterComponent} from './components/register/register.component';
+import {ValidationViewerComponent} from './components/validation-viewer/validation-viewer.component';
+import {LoginComponent} from './components/login/login.component';
 
 import {AuthService} from './services/auth.service';
-import {EffectsModule} from '@ngrx/effects';
+
+import {LoginEffect} from './store/effects/login.effect';
 import {RegisterEffect} from './store/effects/register.effect';
-import { ValidationViewerComponent } from './components/validation-viewer/validation-viewer.component';
+
+import {ConduitRoutingModule} from '../../conduit-routing.module';
 
 @NgModule({
   declarations: [
+    ValidationViewerComponent,
     RegisterComponent,
-    ValidationViewerComponent
+    LoginComponent
   ],
   providers: [
     AuthService
   ],
   imports: [
     CommonModule,
+    ConduitRoutingModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
-
+    EffectsModule.forFeature([
+      LoginEffect,
+      RegisterEffect
+    ]),
   ]
 })
 export class AuthModule {

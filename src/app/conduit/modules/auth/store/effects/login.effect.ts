@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs';
 
-import {registerAction, registerFailureAction, registerSuccessAction} from '../actions/register.action';
+import {loginAction, loginFailureActions, loginSuccessActions} from '../actions/login.action';
 
 import {AuthService} from '../../services/auth.service';
 import {CurrentUserInterface} from '../../../../shered/types/currentUser.interface';
@@ -12,29 +12,29 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {PersistenceStorageService} from '../../../../shered/serices/persistence-storage.service';
 
 @Injectable()
-export class RegisterEffect {
-  register$ = createEffect(() => this.actions$
+export class LoginEffect {
+
+  login$ = createEffect(() => this.actions$
     .pipe(
-      ofType(registerAction),
+      ofType(loginAction),
       switchMap(({request}) => {
-        return this.authService.register(request)
+        return this.authService.login(request)
           .pipe(
             map((currentUser: CurrentUserInterface) => {
               this.persistenceService.set('accessToken', currentUser.token);
 
-              return registerSuccessAction({currentUser});
+              return loginSuccessActions({currentUser});
             }),
             catchError((errorResponse: HttpErrorResponse) => {
-              return of(registerFailureAction({errors: errorResponse.error.errors}));
+              return of(loginFailureActions({errors: errorResponse.error.errors}));
             })
           );
       })
-    )
-  );
+    ));
 
   redirectAfterSubmit$ = createEffect(() => this.actions$
       .pipe(
-        ofType(registerSuccessAction),
+        ofType(loginSuccessActions),
         tap(() => this.router.navigateByUrl('/conduit'))
       ),
     {dispatch: false}

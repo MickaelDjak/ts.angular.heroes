@@ -9,11 +9,15 @@ import {environment} from '../../environments/environment';
 import {CardsComponent} from './components/cards/cards.component';
 import {HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
+import {PersistenceStorageService} from './shered/serices/persistence-storage.service';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     CardsComponent
+  ],
+  providers: [
+    PersistenceStorageService,
   ],
   imports: [
     CommonModule,
