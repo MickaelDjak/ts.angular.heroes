@@ -10,11 +10,13 @@ import {CardsComponent} from './components/cards/cards.component';
 import {HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import {PersistenceStorageService} from './shered/serices/persistence-storage.service';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    CardsComponent
+    CardsComponent,
+    TopBarComponent
   ],
   providers: [
     PersistenceStorageService,

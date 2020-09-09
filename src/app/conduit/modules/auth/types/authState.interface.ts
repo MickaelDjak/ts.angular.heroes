@@ -3,6 +3,6 @@ import {CurrentUserInterface} from '../../../shered/types/currentUser.interface'
 
 export interface AuthStateInterface {
   isSubmitting: boolean;
-  currentUser: CurrentUserInterface;
+  currentUser: CurrentUserInterface | null;
   validationErrors: ErrorReportInterface;
 }

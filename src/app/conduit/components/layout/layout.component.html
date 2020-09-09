@@ -1,25 +1,5 @@
 <div class="conduit">
-  <header class="my-4">
-    <div class="navbar navbar-light shadow-sm"  style="background-color: #b3dfff;">
-      <div class="container d-flex justify-content-between">
-        <a class="navbar-brand d-flex align-items-center" routerLink="/conduit">
-          <strong>Conduit</strong>
-        </a>
-
-        <div class="d-flex justify-content-end">
-          <a class="nav-link text-white" routerLink="/conduit" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}">
-            <strong>Home</strong>
-          </a>
-          <a class="nav-link text-white" routerLink="/conduit/login" routerLinkActive="text-primary">
-            <strong>Sign in</strong>
-          </a>
-          <a class="nav-link text-white" routerLink="/conduit/register" routerLinkActive="text-primary">
-            <strong>Sign up</strong>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <app-top-bar></app-top-bar>
 
   <main role="main">
     <router-outlet></router-outlet>

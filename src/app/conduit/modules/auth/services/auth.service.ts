@@ -18,23 +18,23 @@ export class AuthService {
   }
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
-    console.log('[AuthService] register request');
+    // console.log('[AuthService] register request');
     const url = environment.apiUrl + '/users';
 
     return this.httpClient.post<AuthResponseInterface>(url, data)
       .pipe(
-        tap(() => console.log('[AuthService] register response')),
+        // tap(() => console.log('[AuthService] register response')),
         map(this.getUser)
       );
   }
 
   login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
-    console.log('[AuthService] login request', data);
+    // console.log('[AuthService] login request', data);
     const url = environment.apiUrl + '/users/login';
 
     return this.httpClient.post<AuthResponseInterface>(url, data)
       .pipe(
-        tap(() => console.log('[AuthService] login response')),
+        // tap(() => console.log('[AuthService] login response')),
         map(this.getUser)
       );
   }

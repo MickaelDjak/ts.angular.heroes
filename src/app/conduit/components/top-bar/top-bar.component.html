@@ -1,0 +1,48 @@
+<header class="my-4">
+  <div class="navbar navbar-light shadow-sm" style="background-color: #b3dfff;">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/conduit">
+        <strong>Conduit</strong>
+      </a>
+
+      <div class="d-flex justify-content-end">
+        <a class="nav-link text-white" routerLink="/conduit" routerLinkActive="text-primary"
+           [routerLinkActiveOptions]="{exact: true}">
+          <strong>Home</strong>
+        </a>
+        <ng-container *ngIf="isLoggedIn$ | async; then loggedInUse else anonymousUse"></ng-container>
+
+        <ng-template #anonymousUse>
+          <a class="nav-link text-white" routerLink="/conduit/login" routerLinkActive="text-primary">
+            <strong>Sign in</strong>
+          </a>
+          <a class="nav-link text-white" routerLink="/conduit/register" routerLinkActive="text-primary">
+            <strong>Sign up</strong>
+          </a>
+        </ng-template>
+
+        <ng-template #loggedInUse>
+          <a class="nav-link text-white" routerLink="/articles/new" routerLinkActive="text-primary">
+            <!--            <ion-icon name="clipboard-outline" size="large"></ion-icon>-->
+            &nbsp;
+            <strong>New Article</strong>
+          </a>
+          <a class="nav-link text-white" routerLink="/settings" routerLinkActive="text-primary">
+            <!--            <ion-icon name="cog-outline" size="large"></ion-icon>-->
+            &nbsp;
+            <strong>Settings</strong>
+          </a>
+          <ng-container *ngIf="(currentUser$ | async) as user">
+            <a class="nav-link text-white" routerLink="['/user', user.username]"
+               routerLinkActive="text-primary">
+              <strong>{{ user.username }}</strong>
+              <img class="user-pic" [src]="user.image" alt="user image">
+            </a>
+          </ng-container>
+        </ng-template>
+
+
+      </div>
+    </div>
+  </div>
+</header>

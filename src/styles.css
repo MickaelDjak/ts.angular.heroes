@@ -17,5 +17,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #558B2F;
 }
 
-
-
+img.user-pic {
+  height: 27px;
+  border-radius: 50px;
+  float: left;
+  margin-right: 5px;
+}
