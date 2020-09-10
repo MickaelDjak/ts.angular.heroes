@@ -1,25 +1,33 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LayoutComponent} from './components/layout/layout.component';
+import {LayoutComponent} from './shered/components/layout/layout.component';
 import {ConduitRoutingModule} from './conduit-routing.module';
-import {AuthModule} from './modules/auth/auth.module';
+import {AuthModule} from './auth/auth.module';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../../environments/environment';
-import {CardsComponent} from './components/cards/cards.component';
-import {HttpClientModule} from '@angular/common/http';
+import {FeedComponent} from './shered/components/feed/feed.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import {PersistenceStorageService} from './shered/serices/persistence-storage.service';
-import { TopBarComponent } from './components/top-bar/top-bar.component';
+import {TopBarComponent} from './shered/components/top-bar/top-bar.component';
+import {AuthInterceptorService} from './shered/serices/auth-interceptor.service';
+import { FeedListComponent } from './global-feed/components/feed-list/feed-list.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    CardsComponent,
-    TopBarComponent
+    FeedComponent,
+    TopBarComponent,
+    FeedListComponent
   ],
   providers: [
     PersistenceStorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
   ],
   imports: [
     CommonModule,
