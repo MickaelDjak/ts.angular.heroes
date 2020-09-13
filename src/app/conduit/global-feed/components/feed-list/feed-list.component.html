@@ -26,7 +26,10 @@
                 </ul>
               </div>
 
-              <app-feed *ngFor="let a of list"> </app-feed>
+              <ng-container *ngIf="list$ | async as batch">
+                <app-feed *ngFor="let a of batch"> </app-feed>
+              </ng-container>
+
             </div>
             <div class="col-3">
               <h2>Popular Tags</h2>

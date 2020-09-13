@@ -12,14 +12,12 @@ import {EffectsModule} from '@ngrx/effects';
 import {PersistenceStorageService} from './shered/serices/persistence-storage.service';
 import {TopBarComponent} from './shered/components/top-bar/top-bar.component';
 import {AuthInterceptorService} from './shered/serices/auth-interceptor.service';
-import { FeedListComponent } from './global-feed/components/feed-list/feed-list.component';
+import {GlobalFeedModule} from './global-feed/global-feed.module';
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    FeedComponent,
     TopBarComponent,
-    FeedListComponent
   ],
   providers: [
     PersistenceStorageService,
@@ -33,6 +31,7 @@ import { FeedListComponent } from './global-feed/components/feed-list/feed-list.
     CommonModule,
     ConduitRoutingModule,
     AuthModule,
+    GlobalFeedModule,
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
