@@ -7,10 +7,11 @@ const feedStateSelector = createFeatureSelector<AppStateInterface, FeedStateInte
 
 export const getFeeds = createSelector(
   feedStateSelector,
-  (state: FeedStateInterface): Array<FeedInterface> => {
-
-    return state.data.articles;
-  }
+  (state: FeedStateInterface): Array<FeedInterface> => state?.data?.articles
 );
 
+export const isLoading = createSelector(
+  feedStateSelector,
+  (state: FeedStateInterface): boolean => state.isLoading
+);
 

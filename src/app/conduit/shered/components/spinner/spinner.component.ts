@@ -2,10 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FeedInterface} from '../../../global-feed/types/feed.interface';
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
+  selector: 'cn-sr-spinner',
+  templateUrl: './spinner.component.html',
+  styleUrls: ['./spinner.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class SpinnerComponent implements OnInit {
 
   @Input() feed: FeedInterface;
 

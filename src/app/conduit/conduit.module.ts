@@ -6,18 +6,19 @@ import {AuthModule} from './auth/auth.module';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../../environments/environment';
-import {FeedComponent} from './shered/components/feed/feed.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import {PersistenceStorageService} from './shered/serices/persistence-storage.service';
 import {TopBarComponent} from './shered/components/top-bar/top-bar.component';
 import {AuthInterceptorService} from './shered/serices/auth-interceptor.service';
 import {GlobalFeedModule} from './global-feed/global-feed.module';
+import {SpinnerComponent} from './shered/components/spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    TopBarComponent,
+    TopBarComponent
   ],
   providers: [
     PersistenceStorageService,
@@ -26,6 +27,8 @@ import {GlobalFeedModule} from './global-feed/global-feed.module';
       useClass: AuthInterceptorService,
       multi: true
     },
+  ],
+  exports: [
   ],
   imports: [
     CommonModule,

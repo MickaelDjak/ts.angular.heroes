@@ -16,6 +16,7 @@ export function reducers(state: FeedStateInterface, action: Action) {
     initialState,
     on(getFeedAction, (state): FeedStateInterface => ({
       ...state,
+      data: null,
       isLoading: true
     })),
     on(getFeedSuccessAction, (state, action) => ({

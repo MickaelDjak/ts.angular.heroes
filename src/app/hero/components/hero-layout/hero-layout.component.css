@@ -1,7 +1,7 @@
 /*:host .heroes {*/
 /*  display: flex;*/
 /*  flex-wrap: wrap;*/
-/*  feed-list-style: none;*/
+/*  global-feed-list-style: none;*/
 /*  padding: 0;*/
 /*  justify-content: center;*/
 /*}*/
