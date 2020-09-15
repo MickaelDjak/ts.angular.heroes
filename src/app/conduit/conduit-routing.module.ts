@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {LayoutComponent} from './shered/components/layout/layout.component';
+import {LayoutComponent} from './layout.component';
 import {RegisterComponent} from './auth/components/register/register.component';
 import {LoginComponent} from './auth/components/login/login.component';
 import {GlobalFeedListComponent} from './global-feed/components/global-feed-list/global-feed-list.component';

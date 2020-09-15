@@ -3,7 +3,6 @@ import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {CurrentUserInterface} from '../../types/currentUser.interface';
 import {currentUserSelector, isLoggedInSelector} from '../../../auth/store/selectors';
-import {tap} from 'rxjs/operators';
 import {getCurrentUserAction} from '../../../auth/store/actions/getCurrentUser.action';
 
 @Component({

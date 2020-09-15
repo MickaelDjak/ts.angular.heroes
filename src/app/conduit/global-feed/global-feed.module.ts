@@ -6,26 +6,18 @@ import {EffectsModule} from '@ngrx/effects';
 import {GetFeedEffect} from './store/effects/getFeed.effect';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/reducer';
-import {FeedComponent} from '../shered/components/feed/feed.component';
 import {RouterModule} from '@angular/router';
-import {FeedListComponent} from '../shered/components/feed-list/feed-list.component';
-import {TopBarComponent} from '../shered/components/top-bar/top-bar.component';
-import {SpinnerComponent} from '../shered/components/spinner/spinner.component';
+import {SheredModule} from '../shered/shered.module';
 
 @NgModule({
   declarations: [
     GlobalFeedListComponent,
-    FeedComponent,
-    FeedListComponent,
-    SpinnerComponent
   ],
   providers: [
     FeedServiceService
   ],
-  exports: [
-    FeedComponent
-  ],
   imports: [
+    SheredModule,
     CommonModule,
     RouterModule,
     StoreModule.forFeature('feed', reducers),
