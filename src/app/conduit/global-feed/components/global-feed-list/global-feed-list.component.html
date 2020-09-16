@@ -1,36 +1,27 @@
 <main role="main">
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>conduit</h1>
-      <p class="lead text-muted">A place to share your Angular knowledge.</p>
-    </div>
-  </section>
+  <cn-sr-banner></cn-sr-banner>
   <div class="py-2">
     <div class="container">
 
-      <div class="row">
+      <div class="row mb-4">
         <div class="container">
 
           <div class="row">
-            <div class="col-9">
-              <h2>Feeds</h2>
+            <div class="col-lg-9 col-md-12">
+              <h2 class="mb-2">Feeds</h2>
 
               <div class="mb-2">
-                <ul class="nav nav-tabs">
-                  <li class="nav-item">
-                    <a class="nav-link" routerLink="conduit/" routerLinkActive="active">Global</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" routerLink="conduit/"  routerLinkActive="active">Your</a>
-                  </li>
-                </ul>
+                <nav class="nav nav-pills nav-fill">
+                  <a class="nav-item nav-link active" routerLink="conduit/" routerLinkActive="active">Global</a>
+                  <a class="nav-item nav-link" routerLink="conduit/" routerLinkActive="active">Your</a>
+                </nav>
               </div>
 
               <cn-sr-feed-list [url]="url"></cn-sr-feed-list>
-
             </div>
-            <div class="col-3">
-              <h2>Popular Tags</h2>
+
+            <div class="col-lg-3 col-md-12">
+              <h2 class="mb-2">Popular Tags</h2>
               <div>
                 <button type="button" class="btn btn-secondary btn-sm mx-1 my-1"> button</button>
                 <button type="button" class="btn btn-secondary btn-sm mx-1 my-1">Small button</button>
@@ -45,23 +36,14 @@
         </div>
 
       </div>
-      <div class="row">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-12">
+            <cn-sr-pagination></cn-sr-pagination>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </main>
 

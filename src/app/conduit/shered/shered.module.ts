@@ -8,19 +8,25 @@ import {PersistenceStorageService} from './serices/persistence-storage.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptorService} from './serices/auth-interceptor.service';
 import {RouterModule} from '@angular/router';
+import { BannerComponent } from './components/banner/banner.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     FeedComponent,
     FeedListComponent,
     SpinnerComponent,
-    TopBarComponent
+    TopBarComponent,
+    BannerComponent,
+    PaginationComponent
   ],
   exports: [
     FeedComponent,
     FeedListComponent,
     SpinnerComponent,
     TopBarComponent,
+    BannerComponent,
+    PaginationComponent
   ],
   providers: [
     PersistenceStorageService,
