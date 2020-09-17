@@ -12,8 +12,10 @@ export class FeedServiceService {
   constructor(private httpService: HttpClient) {
   }
 
-  getFeed(url): Observable<GetFeedResponseInterface> {
-    const fullUrlApi = environment.apiUrl + url;
+  getFeed(url: string, page = 1): Observable<GetFeedResponseInterface> {
+    const limit = environment.perPage;
+    const offset = limit * (page - 1);
+    const fullUrlApi = environment.apiUrl + url + `?limit=${limit}&offset=${offset}`;
 
     return this.httpService.get<GetFeedResponseInterface>(fullUrlApi);
   }

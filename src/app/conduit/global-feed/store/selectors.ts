@@ -10,6 +10,11 @@ export const getFeeds = createSelector(
   (state: FeedStateInterface): Array<FeedInterface> => state?.data?.articles
 );
 
+export const getFeedNumber = createSelector(
+  feedStateSelector,
+  (state: FeedStateInterface): number => state?.data?.articlesCount
+);
+
 export const isLoading = createSelector(
   feedStateSelector,
   (state: FeedStateInterface): boolean => state.isLoading

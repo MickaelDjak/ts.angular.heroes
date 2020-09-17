@@ -14,8 +14,8 @@ export class GetFeedEffect {
   register$ = createEffect(() => this.actions$
     .pipe(
       ofType(getFeedAction),
-      switchMap(({url}) => {
-        return this.feedService.getFeed(url)
+      switchMap(({url, page = 1}) => {
+        return this.feedService.getFeed(url, page)
           .pipe(
             map((feed: GetFeedResponseInterface) => {
               return getFeedSuccessAction({feed});

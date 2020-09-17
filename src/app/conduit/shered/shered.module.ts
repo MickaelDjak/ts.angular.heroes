@@ -8,8 +8,9 @@ import {PersistenceStorageService} from './serices/persistence-storage.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptorService} from './serices/auth-interceptor.service';
 import {RouterModule} from '@angular/router';
-import { BannerComponent } from './components/banner/banner.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
+import {BannerComponent} from './components/banner/banner.component';
+import {PaginationComponent} from './components/pagination/pagination.component';
+import {PaginationService} from './serices/pagination.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    PaginationService
   ],
   imports: [
     CommonModule,

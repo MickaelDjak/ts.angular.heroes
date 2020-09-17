@@ -2,6 +2,14 @@
   <cn-sr-spinner></cn-sr-spinner>
 </ng-container>
 
-<ng-container *ngIf="list$ | async as list">
-  <app-feed *ngFor="let one of list" [feed]="one"></app-feed>
+<ng-container *ngIf="feeds$ | async as feed">
+  <app-feed *ngFor="let one of feed" [feed]="one"></app-feed>
+  <cn-sr-pagination
+    [total]="totalFeedNumber$ | async"
+    [perPage]="feedPerPage"
+    [baseUrl]="baseUrl"
+    [currentPage]="currentPage"
+  ></cn-sr-pagination>
 </ng-container>
+
+
