@@ -45,21 +45,25 @@ export class FeedListComponent implements OnInit, OnDestroy {
   }
 
   initializeData(): void {
-    this.state.dispatch(getFeedAction({
-      url: this.url,
-      page: this.currentPage
-    }));
+    this.fetchFeed();
   }
 
   initializeListeners(): void {
     this.subscriptionOnParams = this.activateRoute.queryParamMap.subscribe((data: ParamMap) => {
       this.currentPage = Number(data.get('page') || '1');
 
-      this.initializeData();
+      this.fetchFeed();
     });
   }
 
   ngOnDestroy(): void {
     this.subscriptionOnParams.unsubscribe();
+  }
+
+  fetchFeed(): void {
+    this.state.dispatch(getFeedAction({
+      url: this.url,
+      page: this.currentPage
+    }));
   }
 }
