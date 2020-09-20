@@ -1,15 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ConduitRoutingModule} from './conduit-routing.module';
-import {AuthModule} from './auth/auth.module';
+import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {environment} from '../../environments/environment';
-import {HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
-import {GlobalFeedModule} from './global-feed/global-feed.module';
+import {StoreRouterConnectingModule, routerReducer} from '@ngrx/router-store';
+import {environment} from '../../environments/environment';
+import {ConduitRoutingModule} from './conduit-routing.module';
+
 import {SheredModule} from './shered/shered.module';
 import {LayoutComponent} from './layout.component';
+import {AuthModule} from './auth/auth.module';
+import {GlobalFeedModule} from './global-feed/global-feed.module';
 
 @NgModule({
   declarations: [
@@ -19,17 +21,20 @@ import {LayoutComponent} from './layout.component';
   exports: [],
   imports: [
     CommonModule,
-    SheredModule,
     ConduitRoutingModule,
-    AuthModule,
-    GlobalFeedModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({
+      router: routerReducer,
+    }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
+    StoreRouterConnectingModule.forRoot(),
+    SheredModule,
+    AuthModule,
+    GlobalFeedModule,
   ]
 })
 

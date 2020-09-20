@@ -1,6 +1,6 @@
 import {FeedInterface} from './feed.interface';
 
-export interface GetFeedResponseInterface {
+export interface FeedListResponseInterface {
   articles: Array<FeedInterface>;
   articlesCount: number;
 }

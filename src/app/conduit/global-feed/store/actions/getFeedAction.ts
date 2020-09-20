@@ -1,15 +1,15 @@
 import {createAction, props} from '@ngrx/store';
 import {ActionTypes} from '../actionTypes';
-import {GetFeedResponseInterface} from '../../types/getFeedResponse.interface';
+import {FeedListResponseInterface} from '../../types/feedListResponse.interface';
 
 export const getFeedAction = createAction(
   ActionTypes.GET_FEED,
-  props<{ url: string, page?: number }>()
+  props<{ url: string, tag?: string, page?: number }>()
 );
 
 export const getFeedSuccessAction = createAction(
   ActionTypes.GET_FEED_SUCCESS,
-  props<{ feed: GetFeedResponseInterface }>()
+  props<{ feed: FeedListResponseInterface }>()
 );
 
 export const getFeedFailureAction = createAction(

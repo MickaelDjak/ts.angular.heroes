@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {PaginationPage, PaginationService} from '../../serices/pagination.service';
 
 @Component({
   selector: 'cn-sr-pagination',
   templateUrl: './pagination.component.html',
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
 
   @Input() baseUrl: string;
   @Input() total: number;
@@ -15,15 +15,11 @@ export class PaginationComponent implements OnInit {
   constructor(private paginationGenerator: PaginationService) {
   }
 
-  ngOnInit(): void {
-    console.log(this);
-  }
-
   get pages(): Array<PaginationPage> {
     return this.paginationGenerator.pagination({
-      total: this.total,
-      perPage: this.perPage,
-      current: this.currentPage
+      total: Number(this.total),
+      perPage: Number(this.perPage),
+      current: Number(this.currentPage)
     });
   }
 }

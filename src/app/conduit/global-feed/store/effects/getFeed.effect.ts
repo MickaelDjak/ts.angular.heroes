@@ -7,17 +7,17 @@ import {getFeedAction, getFeedSuccessAction, getFeedFailureAction} from '../acti
 
 import {HttpErrorResponse} from '@angular/common/http';
 import {FeedServiceService} from '../../services/feed-service.service';
-import {GetFeedResponseInterface} from '../../types/getFeedResponse.interface';
+import {FeedListResponseInterface} from '../../types/feedListResponse.interface';
 
 @Injectable()
 export class GetFeedEffect {
   register$ = createEffect(() => this.actions$
     .pipe(
       ofType(getFeedAction),
-      switchMap(({url, page = 1}) => {
-        return this.feedService.getFeed(url, page)
+      switchMap(({url, tag = '', page = 1}) => {
+        return this.feedService.getFeed(url, tag, page)
           .pipe(
-            map((feed: GetFeedResponseInterface) => {
+            map((feed: FeedListResponseInterface) => {
               return getFeedSuccessAction({feed});
             }),
             catchError((errorResponse: HttpErrorResponse) => {

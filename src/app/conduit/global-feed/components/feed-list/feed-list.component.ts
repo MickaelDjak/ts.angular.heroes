@@ -1,9 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import {FeedInterface} from '../../../global-feed/types/feed.interface';
+import {FeedInterface} from '../../types/feed.interface';
 import {select, Store} from '@ngrx/store';
-import {getFeedNumber, getFeeds, isLoading} from '../../../global-feed/store/selectors';
-import {getFeedAction} from '../../../global-feed/store/actions/getFeedAction';
+import {getFeedNumber, getFeeds, isLoading} from '../../store/selectors/feedSelectors';
+import {getFeedAction} from '../../store/actions/getFeedAction';
 import {environment} from '../../../../../environments/environment';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
@@ -13,6 +13,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 })
 export class FeedListComponent implements OnInit, OnDestroy {
   @Input() url: string;
+  tag: string;
 
   isLoading$: Observable<boolean>;
   feeds$: Observable<Array<FeedInterface>>;
@@ -27,8 +28,9 @@ export class FeedListComponent implements OnInit, OnDestroy {
   constructor(
     private state: Store,
     private router: Router,
-    private activateRoute: ActivatedRoute,
+    private activateRouted: ActivatedRoute,
   ) {
+
   }
 
   ngOnInit(): void {
@@ -41,7 +43,13 @@ export class FeedListComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.state.pipe(select(isLoading));
     this.feeds$ = this.state.pipe(select(getFeeds));
     this.totalFeedNumber$ = this.state.pipe(select(getFeedNumber));
-    this.baseUrl = this.router.url.split('?')[0];
+    this.baseUrl = this.router.url.split('?')[0] || 'test';
+
+    this.activateRouted.queryParamMap.subscribe((map) => {
+      if (map.has('tag')) {
+        this.tag = map.get('tag');
+      }
+    });
   }
 
   initializeData(): void {
@@ -49,7 +57,7 @@ export class FeedListComponent implements OnInit, OnDestroy {
   }
 
   initializeListeners(): void {
-    this.subscriptionOnParams = this.activateRoute.queryParamMap.subscribe((data: ParamMap) => {
+    this.subscriptionOnParams = this.activateRouted.queryParamMap.subscribe((data: ParamMap) => {
       this.currentPage = Number(data.get('page') || '1');
 
       this.fetchFeed();
@@ -63,6 +71,7 @@ export class FeedListComponent implements OnInit, OnDestroy {
   fetchFeed(): void {
     this.state.dispatch(getFeedAction({
       url: this.url,
+      tag: this.tag,
       page: this.currentPage
     }));
   }

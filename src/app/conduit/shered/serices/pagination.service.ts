@@ -6,7 +6,7 @@ export interface PaginationRequest {
   current: number;
 }
 
-export  interface PaginationPage {
+export interface PaginationPage {
   value: number | string;
   isSeparator: boolean;
   isSelected: boolean;
@@ -31,7 +31,9 @@ export class PaginationService {
       throw new Error('perPage param should be number');
     }
 
-    return this.generatePagination(pages, current);
+    const result = this.generatePagination(pages, current);
+    // console.log(result);
+    return result;
   }
 
   /**

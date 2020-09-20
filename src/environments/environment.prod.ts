@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
   apiUrl: 'https://conduit.productionready.io/api',
-  perPage: 10
+  perPage: 10,
+  articleUrl: '/articles'
 };

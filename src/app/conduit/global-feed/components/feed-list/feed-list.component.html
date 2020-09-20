@@ -3,13 +3,14 @@
 </ng-container>
 
 <ng-container *ngIf="feeds$ | async as feed">
+  <ng-content></ng-content>
   <app-feed *ngFor="let one of feed" [feed]="one"></app-feed>
-
+  <cn-sr-pagination
+    [total]="totalFeedNumber$ | async"
+    [perPage]="feedPerPage"
+    [baseUrl]="baseUrl"
+    [currentPage]="currentPage"
+  ></cn-sr-pagination>
 </ng-container>
 
-<cn-sr-pagination
-  [total]="totalFeedNumber$ | async"
-  [perPage]="feedPerPage"
-  [baseUrl]="baseUrl"
-  [currentPage]="currentPage"
-></cn-sr-pagination>
+

@@ -1,0 +1,14 @@
+<ng-content></ng-content>
+<div>
+
+  <ng-container *ngIf="isLoading$ | async as isLoading">
+    <cn-sr-spinner></cn-sr-spinner>
+  </ng-container>
+
+  <ng-container *ngIf="tags$ | async as tags">
+    <button type="button" class="btn btn-secondary btn-sm mx-1 my-1"
+            *ngFor="let tag of tags"
+            routerLink="/conduit/articles" [queryParams]="{tag: tag}"
+    >{{ tag }}</button>
+  </ng-container>
+</div>

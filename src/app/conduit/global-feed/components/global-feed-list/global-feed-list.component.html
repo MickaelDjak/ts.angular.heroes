@@ -10,31 +10,31 @@
             <div class="col-lg-9 col-md-12">
               <h2 class="mb-2">Feeds</h2>
 
-              <div class="mb-2">
-                <nav class="nav nav-pills nav-fill">
-                  <a class="nav-item nav-link active" routerLink="conduit/" routerLinkActive="active">Global</a>
-                  <a class="nav-item nav-link" routerLink="conduit/" routerLinkActive="active">Your</a>
-                </nav>
-              </div>
-
-              <cn-sr-feed-list [url]="url"></cn-sr-feed-list>
+              <cn-sr-feed-list [url]="url">
+                <div class="mb-2">
+                  <nav class="nav nav-pills">
+                    <a class="nav-item nav-link mr-2" routerLink="/conduit/feed"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact: true}">Feed</a>
+                    <a class="nav-item nav-link mr-2" routerLink="/conduit/articles"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact: true}">Article</a>
+                    <a class="nav-item nav-link" routerLink="/conduit/articles"
+                       *ngIf="tagName"
+                       [queryParams]="{tag: tagName}"
+                       routerLinkActive="active">#{{tagName}}</a>
+                  </nav>
+                </div>
+              </cn-sr-feed-list>
             </div>
 
             <div class="col-lg-3 col-md-12">
-              <h2 class="mb-2">Popular Tags</h2>
-              <div>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1"> button</button>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1">Small button</button>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1">Small</button>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1">Small button</button>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1"> button</button>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1">Small</button>
-                <button type="button" class="btn btn-secondary btn-sm mx-1 my-1">Small button</button>
-              </div>
+              <cn-sr-popular-tag-list>
+                <h2 class="mb-2">Popular Tags</h2>
+              </cn-sr-popular-tag-list>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

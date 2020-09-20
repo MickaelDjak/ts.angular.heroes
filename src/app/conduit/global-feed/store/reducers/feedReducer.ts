@@ -1,6 +1,6 @@
-import {FeedStateInterface} from '../types/feedState.interface';
+import {FeedStateInterface} from '../../types/feedState.interface';
 import {Action, createReducer, on} from '@ngrx/store';
-import {getFeedAction, getFeedFailureAction, getFeedSuccessAction} from './actions/getFeedAction';
+import {getFeedAction, getFeedFailureAction, getFeedSuccessAction} from '../actions/getFeedAction';
 
 const initialState: FeedStateInterface = {
   isLoading: false,

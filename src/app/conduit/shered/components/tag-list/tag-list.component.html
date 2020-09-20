@@ -1,0 +1,6 @@
+<button
+  type="button" class="btn btn-outline-dark btn-sm m-1"
+  *ngFor="let tag of tagList"
+  routerLink="/conduit/articles"
+  [queryParams]="{tag: tag}"
+>{{tag}}</button>
